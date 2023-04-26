@@ -2,3 +2,14 @@ body {
     margin: 0;
     padding: 20px;
 }
+
+div {
+    border: 1px solid red;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+}
