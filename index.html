@@ -6,65 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>taskmatrix</title>
     <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <script src="../dist/bundle.js" defer></script>
 </head>
 <body>
 
-    <header>TASKMATRIX</header>
+    <header><h1>taskmatrix</h1></header>
+
+    <nav>
+        <button id="add-task-button">Add Task</button>
+    </nav>
 
     <main>
+        <div id="a-head">quadrant a</div>
+        <div id="b-head">quadrant b</div>
         <div id="a"></div>
         <div id="b"></div>
+        <div id="c-head">quadrant c</div>
+        <div id="d-head">quadrant d</div>
         <div id="c"></div>
         <div id="d"></div>
     </main>
-    
-    <form id="add-task-form">
 
-        <fieldset>
-            <label for="title">Title</label><br>
-            <input type="text" id="title" name="title">
-        </fieldset>
+    <footer>
+        Footer
+    </footer>
 
-        <fieldset>
-            <label for="category">Category</label><br>
-            <select name="category" id="category">
-                <option value="">None</option>
-                <option value="Finance">Finance</option>
-                <option value="Work">Work</option>
-                <option value="Hobbies">Hobbies</option>
-            </select>
-        </fieldset>
-
-        <fieldset>
-            <label for="deadline">Deadline</label><br>
-            <input type="date" id="deadline" name="deadline">
-        </fieldset>
-
-        <fieldset>
-            <label for="notes">Notes</label><br>
-            <textarea id="notes" name="notes" rows="5"></textarea>
-        </fieldset>
-
-        <fieldset>
-            Urgent?<br>
-            <input type="radio" id="urgency1" name="urgency" value="1">
-            <label for="urgency1" id="urgency1">Yes</label><br>
-            <input type="radio" id="urgency0" name="urgency" value="0">
-            <label for="urgency0" id="urgency0">No</label>
-        </fieldset>
-
-        <fieldset>
-            Important?<br>
-            <input type="radio" id="importance1" name="importance" value="1">
-            <label for="importance1" id="importance1">Yes</label><br>
-            <input type="radio" id="importance0" name="importance" value="0">
-            <label for="importance0" id="importance0">No</label>
-        </fieldset>
-
-        <button type="submit">Add</button>
-
-    </form>
+    <dialog id="add-task-dialog">
+        <form id="add-task-form">
+            <fieldset>
+                <label for="title">Title</label><br>
+                <input type="text" id="title" name="title">
+            </fieldset>
+            <fieldset>
+                <label for="deadline">Deadline</label><br>
+                <input type="date" id="deadline" name="deadline">
+            </fieldset>
+            <fieldset>
+                <label for="category">Category</label><br>
+                <select name="category" id="category">
+                    <option value="">None</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Work">Work</option>
+                    <option value="Hobbies">Hobbies</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="notes">Notes</label><br>
+                <textarea id="notes" name="notes" rows="5"></textarea>
+            </fieldset>
+            <fieldset>
+                Urgent?<br>
+                <input type="radio" id="urgency1" name="urgency" value="1">
+                <label for="urgency1" id="urgency1">Yes</label><br>
+                <input type="radio" id="urgency0" name="urgency" value="0">
+                <label for="urgency0" id="urgency0">No</label>
+            </fieldset>
+            <fieldset>
+                Important?<br>
+                <input type="radio" id="importance1" name="importance" value="1">
+                <label for="importance1" id="importance1">Yes</label><br>
+                <input type="radio" id="importance0" name="importance" value="0">
+                <label for="importance0" id="importance0">No</label>
+            </fieldset>
+            <button type="submit">Add</button>
+        </form>
+    </dialog>
 
 </body>
 </html>
