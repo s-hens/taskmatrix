@@ -13,7 +13,7 @@ function addTask() {
     // Get properties from user input
     const title = document.getElementById("title").value;
     const category = document.getElementById("category").value;
-    const deadline = document.getElementById("deadline").value;
+    const deadline = Date.parse(document.getElementById("deadline").value);
     const notes = document.getElementById("notes").value;
     let urgency;
     for (let i = 0; i < 2; i++) {
@@ -47,8 +47,18 @@ function addTask() {
     const newTask = task(title, category, deadline, notes, urgency, importance, quadrant);
     // Add to array
     taskArray.push(newTask);
-    console.log(taskArray);
 };
 
-// Export
-export {addTask};
+// Order by deadline
+function orderByDeadline(a, b) {
+    if (a.deadline && b.deadline) {
+        return a.deadline - b.deadline;
+    } else if (!a.deadline) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
+
+// Exports
+export { taskArray, addTask, orderByDeadline };
