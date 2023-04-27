@@ -109,5 +109,11 @@ function editTask(a) {
     taskArray.splice(index, 1, updatedTask);
 }
 
+// Delete task
+function deleteTask(a) {
+    const index = a.parentNode.getAttribute("num")
+    taskArray.splice(a, 1);
+}
+
 // Exports
-export { taskArray, addTask, orderByDeadline, editTask };
+export { taskArray, addTask, orderByDeadline, editTask, deleteTask };

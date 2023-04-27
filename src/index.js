@@ -1,28 +1,32 @@
 // Imports
-import { taskArray, addTask, orderByDeadline, editTask } from "./data";
+import { taskArray, addTask, orderByDeadline, editTask, deleteTask } from "./data";
 import { toggleAddDialog, toggleEditDialog, displayTasks } from "./dom";
 
 // Buttons
 document.getElementById("add-task-button").addEventListener("click", toggleAddDialog);
-document.getElementById("add-task-form").addEventListener("submit", newTask);
+
+document.getElementById("add-task-form").addEventListener("submit", addTaskWorkflow);
+document.getElementById("edit-task-form").addEventListener("submit", editTaskWorkflow);
 
 // New task
-function newTask() {
+function addTaskWorkflow() {
     addTask();
     taskArray.sort(orderByDeadline);
     displayTasks();
     toggleAddDialog();
-    //console.table(taskArray);
 }
 
-function tryThis() {
-    //console.log(this);
+function editTaskWorkflow() {
     editTask(this);
     taskArray.sort(orderByDeadline);
     displayTasks();
     toggleEditDialog();
-    //console.table(taskArray);
 }
 
+function deleteTaskWorkflow() {
+    deleteTask(this);
+    taskArray.sort(orderByDeadline);
+    displayTasks();
+}
 
-document.getElementById("edit-task-form").addEventListener("submit", tryThis);
+export { deleteTaskWorkflow };

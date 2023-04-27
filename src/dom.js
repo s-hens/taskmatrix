@@ -1,29 +1,29 @@
 // Imports
 import { taskArray } from "./data";
+import { deleteTaskWorkflow } from "./index";
 
-// Toggle "add task" dialog
+// Toggle "add task" dialog, reset form when closing
 function toggleAddDialog() {
     if (document.getElementById("add-task-dialog").open) {
         document.getElementById("add-task-dialog").close();
+        document.getElementById("add-task-form").reset();
     } else {
         document.getElementById("add-task-dialog").showModal();
     }
 }
 
-// Toggle "edit task" dialog
+// Toggle "edit task" dialog, reset form when closing
 function toggleEditDialog() {
     if (document.getElementById("edit-task-dialog").open) {
         document.getElementById("edit-task-dialog").close();
+        document.getElementById("edit-task-form").reset();
     } else {
         document.getElementById("edit-task-dialog").showModal();
-        // Identify which task is being edited
+        // Identify which task is being edited, set task index as form "num"
         const index = this.parentNode.getAttribute("num");
         const task = taskArray.at(index);
-
-        // Allow us to pass the index along to the next function
         const form = document.getElementById("edit-task-form")
         form.setAttribute("num", index);
-        
         // Populate form
         document.getElementById("edit-title").value = task.title;
         if (task.notes) {
@@ -56,7 +56,7 @@ function displayTasks() {
         // Container div
         const taskDiv = document.createElement("div");
         document.getElementById(task.quadrant).appendChild(taskDiv);
-        taskDiv.setAttribute("num", index);
+        taskDiv.setAttribute("num", index); // Set task index as div "num"
         // "Done" checkbox
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
@@ -74,7 +74,6 @@ function displayTasks() {
         const editButton = document.createElement("button");
         editButton.classList.add("edit");
         taskDiv.appendChild(editButton);
-        //editButton.setAttribute("num", index); // Allows edit button to pass the task index onwards
         editButton.addEventListener("click", toggleEditDialog);
             const editIcon = document.createElement("span");
             editIcon.classList.add("material-icons-round");
@@ -84,6 +83,7 @@ function displayTasks() {
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete");
         taskDiv.appendChild(deleteButton);
+        deleteButton.addEventListener("click", deleteTaskWorkflow);
             const deleteIcon = document.createElement("span");
             deleteIcon.classList.add("material-icons-round");
             deleteIcon.innerText = "delete_forever";
