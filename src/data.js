@@ -15,9 +15,16 @@ function addTask() {
     event.preventDefault();
     // Get properties from user input
     const title = document.getElementById("add-title").value;
-    const deadline = document.getElementById("add-deadline").value
-    const deadlineParsed = Date.parse(deadline);
-    const deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+
+
+    let deadline, deadlineParsed, deadlineFormatted;
+
+    if (document.getElementById("add-deadline").value) {
+    deadline = document.getElementById("add-deadline").value;
+    deadlineParsed = Date.parse(deadline);
+    deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+    }
+
     const category = document.getElementById("add-category").value;
     const notes = document.getElementById("add-notes").value;
     let urgency;
@@ -70,9 +77,15 @@ function editTask(a) {
     event.preventDefault();
     // Get properties from user input
     const title = document.getElementById("edit-title").value;
-    const deadline = document.getElementById("edit-deadline").value
-    const deadlineParsed = Date.parse(deadline);
-    const deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+
+    let deadline, deadlineParsed, deadlineFormatted;
+
+    if (document.getElementById("edit-deadline").value) {
+    deadline = document.getElementById("edit-deadline").value;
+    deadlineParsed = Date.parse(deadline);
+    deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+    }
+
     const category = document.getElementById("edit-category").value;
     const notes = document.getElementById("edit-notes").value;
     let urgency;
@@ -107,11 +120,12 @@ function editTask(a) {
     const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
     const index = a.getAttribute("num");
     taskArray.splice(index, 1, updatedTask);
+    console.table(taskArray);
 }
 
 // Delete task
 function deleteTask(a) {
-    const index = a.parentNode.getAttribute("num")
+    const index = a.parentNode.getAttribute("num");
     taskArray.splice(a, 1);
 }
 
