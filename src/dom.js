@@ -16,9 +16,15 @@ function toggleEditDialog() {
         document.getElementById("edit-task-dialog").close();
     } else {
         document.getElementById("edit-task-dialog").showModal();
-        // Populate form
+        // Identify which task is being edited
         const index = this.parentNode.getAttribute("num");
         const task = taskArray.at(index);
+
+        // Allow us to pass the index along to the next function
+        const form = document.getElementById("edit-task-form")
+        form.setAttribute("num", index);
+        
+        // Populate form
         document.getElementById("edit-title").value = task.title;
         if (task.notes) {
             document.getElementById("edit-notes").value = task.notes;
@@ -45,14 +51,16 @@ function displayTasks() {
     document.getElementById("d").innerText = ``;
     // Repopulate matrix
     taskArray.forEach(task => {
+        // Get task index
+        const index = taskArray.indexOf(task);
         // Container div
         const taskDiv = document.createElement("div");
-        taskDiv.setAttribute("num", taskArray.indexOf(task));
         document.getElementById(task.quadrant).appendChild(taskDiv);
+        taskDiv.setAttribute("num", index);
         // "Done" checkbox
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
-        let checkboxID = "check" + taskArray.indexOf(task);
+        let checkboxID = "check" + index;
         checkbox.setAttribute("id", checkboxID);
         taskDiv.appendChild(checkbox);
         // Title
@@ -66,6 +74,7 @@ function displayTasks() {
         const editButton = document.createElement("button");
         editButton.classList.add("edit");
         taskDiv.appendChild(editButton);
+        //editButton.setAttribute("num", index); // Allows edit button to pass the task index onwards
         editButton.addEventListener("click", toggleEditDialog);
             const editIcon = document.createElement("span");
             editIcon.classList.add("material-icons-round");

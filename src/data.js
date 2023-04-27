@@ -1,6 +1,5 @@
 // Imports
 import { format } from "date-fns";
-import { toggleEditDialog, displayTasks } from "./dom";
 
 // Task array
 const taskArray = [];
@@ -66,7 +65,7 @@ function orderByDeadline(a, b) {
 }
 
 // Edit task
-function editTask(index) {
+function editTask(a) {
     // Prevent page refresh on submit
     event.preventDefault();
     // Get properties from user input
@@ -106,6 +105,7 @@ function editTask(index) {
     }
     // Create task object, add to array
     const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
+    const index = a.getAttribute("num");
     taskArray.splice(index, 1, updatedTask);
 }
 
