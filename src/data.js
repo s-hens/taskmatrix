@@ -1,9 +1,13 @@
+// Imports
+import { format } from "date-fns";
+import { toggleEditDialog, displayTasks } from "./dom";
+
 // Task array
 const taskArray = [];
 
 // Factory function
-const task = (title, deadline, category, notes, urgency, importance, quadrant) => {
-    return {title, deadline, category, notes, urgency, importance, quadrant}
+const task = (title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant) => {
+    return {title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant}
 };
 
 // Create new task
@@ -11,21 +15,22 @@ function addTask() {
     // Prevent page refresh on submit
     event.preventDefault();
     // Get properties from user input
-    const title = document.getElementById("title").value;
-    const deadline = Date.parse(document.getElementById("deadline").value);
-    //const deadline = new Date(document.getElementById("deadline").value);
-    const category = document.getElementById("category").value;
-    const notes = document.getElementById("notes").value;
+    const title = document.getElementById("add-title").value;
+    const deadline = document.getElementById("add-deadline").value
+    const deadlineParsed = Date.parse(deadline);
+    const deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+    const category = document.getElementById("add-category").value;
+    const notes = document.getElementById("add-notes").value;
     let urgency;
     for (let i = 0; i < 2; i++) {
-        if (document.getElementsByName("urgency")[i].checked) {
-            urgency = document.getElementsByName("urgency")[i].value;
+        if (document.getElementsByName("add-urgency")[i].checked) {
+            urgency = document.getElementsByName("add-urgency")[i].value;
         }
     }
     let importance;
     for (let i = 0; i < 2; i++) {
-        if (document.getElementsByName("importance")[i].checked) {
-            importance = document.getElementsByName("importance")[i].value;
+        if (document.getElementsByName("add-importance")[i].checked) {
+            importance = document.getElementsByName("add-importance")[i].value;
         }
     }
     // Determine quadrant
@@ -44,9 +49,8 @@ function addTask() {
             quadrant = "d";
         }
     }
-    // Create task object
-    const newTask = task(title, deadline, category, notes, urgency, importance, quadrant);
-    // Add to array
+    // Create task object, add to array
+    const newTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
     taskArray.push(newTask);
 };
 
@@ -61,5 +65,49 @@ function orderByDeadline(a, b) {
     }
 }
 
+// Edit task
+function editTask(index) {
+    // Prevent page refresh on submit
+    event.preventDefault();
+    // Get properties from user input
+    const title = document.getElementById("edit-title").value;
+    const deadline = document.getElementById("edit-deadline").value
+    const deadlineParsed = Date.parse(deadline);
+    const deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
+    const category = document.getElementById("edit-category").value;
+    const notes = document.getElementById("edit-notes").value;
+    let urgency;
+    for (let i = 0; i < 2; i++) {
+        if (document.getElementsByName("edit-urgency")[i].checked) {
+            urgency = document.getElementsByName("edit-urgency")[i].value;
+        }
+    }
+    let importance;
+    for (let i = 0; i < 2; i++) {
+        if (document.getElementsByName("edit-importance")[i].checked) {
+            importance = document.getElementsByName("edit-importance")[i].value;
+        }
+    }
+    // Determine quadrant
+    let quadrant;
+    if (urgency == 1) {
+        if (importance == 1) {
+            quadrant = "a";
+        }
+        else {
+            quadrant = "c";
+        }
+    } else {
+        if (importance == 1) {
+            quadrant = "b";
+        } else {
+            quadrant = "d";
+        }
+    }
+    // Create task object, add to array
+    const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
+    taskArray.splice(index, 1, updatedTask);
+}
+
 // Exports
-export { taskArray, addTask, orderByDeadline };
+export { taskArray, addTask, orderByDeadline, editTask };
