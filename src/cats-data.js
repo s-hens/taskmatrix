@@ -1,0 +1,3 @@
+// Category array
+const catsArray = [];
+

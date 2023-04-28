@@ -15,6 +15,7 @@
 
     <nav>
         <button id="add-task-button">Add Task</button>
+        <button id="cats-button">Manage Categories</button>
     </nav>
 
     <main>
@@ -113,6 +114,31 @@
                 <label for="edit-importance0">No</label>
             </fieldset>
             <button type="submit">Add</button>
+        </form>
+    </dialog>
+
+    <dialog id="cats-dialog">
+        Add Category
+        <form id="add-cats-form">
+            <fieldset>
+                <label for="new-cat">Title</label><br>
+                <input type="text" id="new-cat" name="new-cat">
+            </fieldset>
+            <button type="submit">Add</button>
+        </form>
+
+        Delete Category
+        <form id="delete-cats-form">
+            <fieldset>
+                <label for="edit-category">Category</label><br>
+                <select name="category" id="edit-category">
+                    <option value="">None</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Work">Work</option>
+                    <option value="Hobbies">Hobbies</option>
+                </select>
+            </fieldset>
+            <button type="submit">Delete</button>
         </form>
     </dialog>
 

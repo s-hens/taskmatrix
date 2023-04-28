@@ -1,5 +1,5 @@
 // Imports
-import { taskArray } from "./data";
+import { taskArray } from "./task-data";
 import { deleteTaskWorkflow } from "./index";
 
 // Toggle "add task" dialog, reset form when closing
@@ -12,7 +12,7 @@ function toggleAddDialog() {
     }
 }
 
-// Toggle "edit task" dialog, reset form when closing
+// Toggle "edit task" dialog, populate form when opening, reset form when closing
 function toggleEditDialog() {
     if (document.getElementById("edit-task-dialog").open) {
         document.getElementById("edit-task-dialog").close();
