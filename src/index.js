@@ -5,7 +5,12 @@ import { toggleCatsDialog } from "./cats-dom"
 
 // Event Listeners
 document.getElementById("add-task-button").addEventListener("click", toggleAddDialog);
+document.getElementById("close-add-task-dialog").addEventListener("click", toggleAddDialog);
+
+document.getElementById("close-edit-task-dialog").addEventListener("click", toggleEditDialog);
+
 document.getElementById("cats-button").addEventListener("click", toggleCatsDialog);
+document.getElementById("close-cats-dialog").addEventListener("click", toggleCatsDialog);
 
 document.getElementById("add-task-form").addEventListener("submit", addTaskWorkflow);
 document.getElementById("edit-task-form").addEventListener("submit", editTaskWorkflow);
