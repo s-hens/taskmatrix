@@ -45,10 +45,10 @@ function toggleEditDialog() {
 // Display tasks on page
 function displayTasks() {
     // Clear matrix
-    document.getElementById("a").innerText = ``;
-    document.getElementById("b").innerText = ``;
-    document.getElementById("c").innerText = ``;
-    document.getElementById("d").innerText = ``;
+    document.getElementById("a").innerText = "";
+    document.getElementById("b").innerText = "";
+    document.getElementById("c").innerText = "";
+    document.getElementById("d").innerText = "";
     // Repopulate matrix
     taskArray.forEach(task => {
         // Get task index

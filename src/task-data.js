@@ -15,16 +15,12 @@ function addTask() {
     event.preventDefault();
     // Get properties from user input
     const title = document.getElementById("add-title").value;
-
-
     let deadline, deadlineParsed, deadlineFormatted;
-
     if (document.getElementById("add-deadline").value) {
     deadline = document.getElementById("add-deadline").value;
     deadlineParsed = Date.parse(deadline);
     deadlineFormatted = format(new Date(deadlineParsed), "iiii, do LLLL y");
     }
-
     const category = document.getElementById("add-category").value;
     const notes = document.getElementById("add-notes").value;
     let urgency;
