@@ -12,11 +12,13 @@ function toggleCatsDialog() {
     }
 }
 
-// Populate "categories" drop-down menu in "add task"/"edit task" dialogs
+// Populate all areas of site with categories
+// Including "add task" form, "edit task" form, and "delete category" form
 function populateCats() {
     // Clear drop-down
     document.getElementById("add-category").innerHTML = "";
     document.getElementById("edit-category").innerHTML = "";
+    document.getElementById("delete-cat").innerHTML = "";
     // Create "none" option
     const addNone = document.createElement("option");
     addNone.value = "";
@@ -26,6 +28,10 @@ function populateCats() {
     editNone.value = "";
     editNone.textContent = "None";
     document.getElementById("edit-category").append(editNone);
+    const deleteNone = document.createElement("option");
+    deleteNone.value = "";
+    deleteNone.textContent = "None";
+    document.getElementById("delete-cat").append(deleteNone);
     // Populate drop-down
     catsArray.forEach(cat => {
         const addCategory = document.createElement("option");
@@ -36,6 +42,10 @@ function populateCats() {
         editCategory.value = cat;
         editCategory.textContent = `${cat}`;
         document.getElementById("edit-category").append(editCategory);
+        const deleteCategory = document.createElement("option");
+        deleteCategory.value = cat;
+        deleteCategory.textContent = `${cat}`;
+        document.getElementById("delete-cat").append(deleteCategory);
     });
 }
 
