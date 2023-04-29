@@ -116,7 +116,6 @@ function editTask(a) {
     const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
     const index = a.getAttribute("num");
     taskArray.splice(index, 1, updatedTask);
-    console.table(taskArray);
 }
 
 // Delete task

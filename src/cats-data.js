@@ -1,3 +1,6 @@
+// Imports
+import { taskArray } from "./task-data";
+
 // Category array
 const catsArray = [];
 
@@ -8,5 +11,18 @@ function addCat() {
     catsArray.push(newCat);
 }
 
+// Delete category
+function deleteCat() {
+    event.preventDefault();
+    const catToDelete = document.getElementById("delete-cat").value;
+    catsArray.splice((catsArray.indexOf(catToDelete)), 1);
+
+    taskArray.forEach(task => {
+        if (task.category == catToDelete) {
+            task.category = "";
+        }
+    })
+}
+
 // Exports
-export { catsArray, addCat };
+export { catsArray, addCat, deleteCat };

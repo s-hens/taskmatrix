@@ -1,7 +1,7 @@
 // Imports
 import { taskArray, addTask, orderByDeadline, editTask, deleteTask } from "./task-data";
 import { toggleAddDialog, toggleEditDialog, displayTasks } from "./task-dom";
-import { catsArray, addCat } from "./cats-data";
+import { catsArray, addCat, deleteCat } from "./cats-data";
 import { toggleCatsDialog, populateCats } from "./cats-dom";
 
 // Event Listeners
@@ -17,6 +17,7 @@ document.getElementById("add-task-form").addEventListener("submit", addTaskWorkf
 document.getElementById("edit-task-form").addEventListener("submit", editTaskWorkflow);
 
 document.getElementById("add-cats-form").addEventListener("submit", addCatWorkflow);
+document.getElementById("delete-cats-form").addEventListener("submit", deleteCatWorkflow);
 
 // Workflows
 function addTaskWorkflow() {
@@ -44,7 +45,13 @@ function addCatWorkflow() {
     catsArray.sort();
     toggleCatsDialog();
     populateCats();
-    //console.table(catsArray);
+}
+
+function deleteCatWorkflow() {
+    deleteCat();
+    toggleCatsDialog();
+    populateCats();
+    displayTasks();
 }
 
 // Exports
