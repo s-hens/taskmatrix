@@ -63,6 +63,7 @@ function displayTasks() {
         let checkboxID = "check" + index;
         checkbox.setAttribute("id", checkboxID);
         taskDiv.appendChild(checkbox);
+        checkbox.addEventListener("click", toggleDone);
         // Title
         const checkboxLabel = document.createElement("label");
         checkboxLabel.setAttribute("for", checkboxID);
@@ -123,6 +124,11 @@ function displayTasks() {
         };
 
     });
+}
+
+// Toggle "done" status
+function toggleDone() {
+    (this.parentElement).classList.toggle("done");
 }
 
 // Exports

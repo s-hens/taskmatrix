@@ -28,3 +28,7 @@ main {
 #a, #b, #c, #d {
     overflow: auto;
 }
+
+.done {
+    text-decoration: line-through;
+}
