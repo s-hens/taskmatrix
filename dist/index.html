@@ -7,30 +7,48 @@
     <title>taskmatrix</title>
     <link rel="stylesheet" href="../src/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap">
     <script src="../dist/bundle.js" defer></script>
 </head>
 <body>
 
-    <header><h1>taskmatrix</h1></header>
-
-    <nav>
-        <button id="add-task-button">Add Task</button>
-        <button id="cats-button">Manage Categories</button>
-    </nav>
+    <header>
+        <h1><span class="material-icons-round">checklist</span> taskmatrix</h1>
+        <nav>
+            <button id="add-task-button"><span class="material-icons-round">add_circle</span>Add Task</button>
+            <button id="cats-button"><span class="material-icons-round">create_new_folder</span>Categories</button>
+        </nav>
+    </header>
 
     <main>
-        <div id="a-head">quadrant a</div>
-        <div id="b-head">quadrant b</div>
+        <div id="a-head">
+            <span class="quad-num">1</span>
+            <h2>Do First</h2>
+            Important and urgent
+        </div>
+        <div id="b-head">
+            <span class="quad-num">2</span>
+            <h2>Schedule</h2>
+            Important, but not urgent
+        </div>
         <div id="a"></div>
         <div id="b"></div>
-        <div id="c-head">quadrant c</div>
-        <div id="d-head">quadrant d</div>
+        <div id="c-head">
+            <span class="quad-num">3</span>
+            <h2>Delegate</h2>
+            Urgent, but not important
+        </div>
+        <div id="d-head">
+            <span class="quad-num">4</span>
+            <h2>Eliminate</h2>
+            Neither important nor urgent
+        </div>
         <div id="c"></div>
         <div id="d"></div>
     </main>
 
     <footer>
-        Footer
+        By Stephanie Henson | <a href="https://github.com/s-hens/taskmatrix">GitHub</a>
     </footer>
 
     <dialog id="add-task-dialog">
