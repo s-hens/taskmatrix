@@ -1,5 +1,5 @@
 // Imports
-import { taskArray, addTask, orderByDeadline, editTask, deleteTask } from "./task-data";
+import { taskArray, addTask, orderByDeadline, editTask, deleteTask, toggleDone } from "./task-data";
 import { toggleAddDialog, toggleEditDialog, displayTasks } from "./task-dom";
 import { catsArray, addCat, deleteCat } from "./cats-data";
 import { toggleCatsDialog, populateCats } from "./cats-dom";
@@ -40,6 +40,11 @@ function deleteTaskWorkflow() {
     displayTasks();
 }
 
+function toggleDoneWorkflow() {
+    toggleDone(this);
+    displayTasks();
+}
+
 function addCatWorkflow() {
     addCat();
     catsArray.sort();
@@ -55,4 +60,4 @@ function deleteCatWorkflow() {
 }
 
 // Exports
-export { deleteTaskWorkflow };
+export { deleteTaskWorkflow, toggleDoneWorkflow };

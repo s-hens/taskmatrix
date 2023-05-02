@@ -1,6 +1,6 @@
 // Imports
 import { taskArray } from "./task-data";
-import { deleteTaskWorkflow } from "./index";
+import { deleteTaskWorkflow, toggleDoneWorkflow } from "./index";
 
 // Toggle "add task" dialog, reset form when closing
 function toggleAddDialog() {
@@ -63,7 +63,7 @@ function displayTasks() {
         let checkboxID = "check" + index;
         checkbox.setAttribute("id", checkboxID);
         taskDiv.appendChild(checkbox);
-        checkbox.addEventListener("click", toggleDone);
+        checkbox.addEventListener("click", toggleDoneWorkflow);
         // Title
         const checkboxLabel = document.createElement("label");
         checkboxLabel.setAttribute("for", checkboxID);
@@ -71,6 +71,11 @@ function displayTasks() {
             const title = document.createElement("h3");
             title.textContent = `${task.title}`;
             checkboxLabel.appendChild(title);
+        // If it's "done"
+        if (task.done == true) {
+            checkbox.checked = true;
+            taskDiv.classList.add("done");
+        }
         // "Edit" button
         const editButton = document.createElement("button");
         editButton.classList.add("edit");
@@ -124,11 +129,6 @@ function displayTasks() {
         };
 
     });
-}
-
-// Toggle "done" status
-function toggleDone() {
-    (this.parentElement).classList.toggle("done");
 }
 
 // Exports

@@ -5,8 +5,8 @@ import { format } from "date-fns";
 const taskArray = [];
 
 // Factory function
-const task = (title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant) => {
-    return {title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant}
+const task = (title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant, done) => {
+    return {title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant, done}
 };
 
 // Create new task
@@ -51,8 +51,10 @@ function addTask() {
             quadrant = "d";
         }
     }
+    // "Done" status starts as false
+    const done = false;
     // Create task object, add to array
-    const newTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
+    const newTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant, done);
     taskArray.push(newTask);
 };
 
@@ -112,17 +114,29 @@ function editTask(a) {
             quadrant = "d";
         }
     }
-    // Create task object, add to array
-    const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant);
+    // Retain "done" status
     const index = a.getAttribute("num");
+    const done = taskArray.at(index).done;
+    // Create task object, add to array
+    const updatedTask = task(title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant, done);
     taskArray.splice(index, 1, updatedTask);
 }
 
 // Delete task
 function deleteTask(a) {
     const index = a.parentNode.getAttribute("num");
-    taskArray.splice(a, 1);
+    taskArray.splice(index, 1);
+}
+
+// Toggle "done" status
+function toggleDone(a) {
+    const task = taskArray.at(a.parentNode.getAttribute("num"));
+    if (task.done == true) {
+        task.done = false;
+    } else {
+        task.done = true;
+    }
 }
 
 // Exports
-export { taskArray, addTask, orderByDeadline, editTask, deleteTask };
+export { taskArray, addTask, orderByDeadline, editTask, deleteTask, toggleDone };
