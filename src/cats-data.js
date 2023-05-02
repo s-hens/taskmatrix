@@ -2,7 +2,7 @@
 import { taskArray } from "./task-data";
 
 // Category array
-const catsArray = [];
+const catsArray = JSON.parse(localStorage.getItem("catsArray")) || [];
 
 // Add new category
 function addCat() {

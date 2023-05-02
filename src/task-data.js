@@ -2,7 +2,7 @@
 import { format } from "date-fns";
 
 // Task array
-const taskArray = [];
+const taskArray = JSON.parse(localStorage.getItem("taskArray")) || [];
 
 // Factory function
 const task = (title, deadline, deadlineParsed, deadlineFormatted, category, notes, urgency, importance, quadrant, done) => {

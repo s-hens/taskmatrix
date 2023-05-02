@@ -23,6 +23,7 @@ document.getElementById("delete-cats-form").addEventListener("submit", deleteCat
 function addTaskWorkflow() {
     addTask();
     taskArray.sort(orderByDeadline);
+    localStorage.setItem("taskArray", JSON.stringify(taskArray));
     displayTasks();
     toggleAddDialog();
 }
@@ -30,6 +31,7 @@ function addTaskWorkflow() {
 function editTaskWorkflow() {
     editTask(this);
     taskArray.sort(orderByDeadline);
+    localStorage.setItem("taskArray", JSON.stringify(taskArray));
     displayTasks();
     toggleEditDialog();
 }
@@ -37,27 +39,35 @@ function editTaskWorkflow() {
 function deleteTaskWorkflow() {
     deleteTask(this);
     taskArray.sort(orderByDeadline);
+    localStorage.setItem("taskArray", JSON.stringify(taskArray));
     displayTasks();
 }
 
 function toggleDoneWorkflow() {
     toggleDone(this);
+    localStorage.setItem("taskArray", JSON.stringify(taskArray));
     displayTasks();
 }
 
 function addCatWorkflow() {
     addCat();
     catsArray.sort();
+    localStorage.setItem("catsArray", JSON.stringify(catsArray));
     toggleCatsDialog();
     populateCats();
 }
 
 function deleteCatWorkflow() {
     deleteCat();
+    localStorage.setItem("catsArray", JSON.stringify(catsArray));
     toggleCatsDialog();
     populateCats();
     displayTasks();
 }
+
+// Populate page on load
+displayTasks();
+populateCats();
 
 // Exports
 export { deleteTaskWorkflow, toggleDoneWorkflow };
