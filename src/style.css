@@ -3,6 +3,7 @@
 :root {
     --white: #FDFDFD;
     --lightgrey: #F5F5F5;
+    --lightmedgrey: #b0b0b0;
     --medgrey: #6F6F6F;
     --darkgrey: #3D3D3D;
     --accent: #0065FD;
@@ -37,9 +38,14 @@ h2 {
     font-weight: 700;
 }
 
+h3 {
+    color: var(--accent);
+}
+
 h3, h4 {
-    margin: 0;
+    margin: 0 5px 0 0;
     font-weight: 700;
+    display: inline-block;
 }
 
 a:link, a:visited, a:active {
@@ -50,8 +56,24 @@ a:hover {
     text-decoration: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .material-icons-round {
-    transform: translateY(3px);
+    color: var(--medgrey);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--lightgrey);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
 }
 
 /* Header */
@@ -61,6 +83,11 @@ header  {
     padding: 20px 10vw;
     display: grid;
     grid-template-columns: 1fr auto;
+}
+
+h1 .material-icons-round {
+    color: var(--accent);
+    transform: translateY(3px);
 }
 
 nav {
@@ -76,10 +103,6 @@ nav button {
     color: var(--darkgrey);
     border: 0;
     margin-left: 20px;
-}
-
-nav button:hover {
-    cursor: pointer;
 }
 
 nav button .material-icons-round {
@@ -153,12 +176,12 @@ main {
 
 #a, #b, #c, #d {
     overflow: auto;
-    border: 1px solid var(--medgrey);
+    border: 1px solid var(--lightmedgrey);
     border-top: 0;
 }
 
 #a-head, #b-head, #c-head, #d-head {
-    border: 1px solid var(--medgrey);
+    border: 1px solid var(--lightmedgrey);
     border-bottom: 0;
 }
 
@@ -172,12 +195,56 @@ main {
 
 /* Tasks */
 
-.task, .task div {
-    border: 1px solid red;
+.task {
+    padding: 10px;
+    border-bottom: 1px solid var(--lightmedgrey);
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
 }
 
-.done {
+.task:last-child {
+    border: 0;
+}
+
+.task button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--darkgrey);
+    background-color: var(--white);
+    border: 0;
+    padding: 0;
+}
+
+.task button:hover .material-icons-round {
+    color: var(--accent);
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.task-deadline {
+    grid-area: 2 / 1 / 3 / 5;
+}
+
+.task-category {
+    grid-area: 3 / 1 / 4 / 5;
+}
+
+.task-notes {
+    grid-area: 4 / 1 / 5 / 5;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.done, .done h3, .done h4 {
     text-decoration: line-through;
+    color: var(--medgrey);
 }
 
 /* Footer */
