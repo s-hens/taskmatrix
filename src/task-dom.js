@@ -55,8 +55,9 @@ function displayTasks() {
         const index = taskArray.indexOf(task);
         // Container div
         const taskDiv = document.createElement("div");
-        document.getElementById(task.quadrant).appendChild(taskDiv);
         taskDiv.setAttribute("num", index); // Set task index as div "num"
+        taskDiv.classList.add("task");
+        document.getElementById(task.quadrant).appendChild(taskDiv);
         // "Done" checkbox
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");

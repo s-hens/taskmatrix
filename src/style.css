@@ -3,10 +3,9 @@
 :root {
     --white: #FDFDFD;
     --lightgrey: #F5F5F5;
-    --medgrey: #888888;
+    --medgrey: #6F6F6F;
     --darkgrey: #3D3D3D;
-    --accent: #24a159;
-    --blue: #1E88E5;
+    --accent: #0065FD;
 }
 
 body {
@@ -44,7 +43,7 @@ h3, h4 {
 }
 
 a:link, a:visited, a:active {
-    color: var(--blue);
+    color: var(--accent);
 }
 
 a:hover {
@@ -129,19 +128,19 @@ main {
 }
 
 #b-head .quad-num {
-    background-color: #549a69;
+    background-color: #2869ca;
 }
 
 #b-head h2 {
-    color: #549a69;
+    color: #2869ca;
 }
 
 #c-head .quad-num {
-    background-color: #719179;
+    background-color: #4d6c9b;
 }
 
 #c-head h2 {
-    color: #719179;
+    color: #4d6c9b;
 }
 
 #d-head .quad-num {
@@ -172,6 +171,10 @@ main {
 }
 
 /* Tasks */
+
+.task, .task div {
+    border: 1px solid red;
+}
 
 .done {
     text-decoration: line-through;
