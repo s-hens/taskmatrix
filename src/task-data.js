@@ -60,9 +60,10 @@ function addTask() {
 
 // Order by deadline
 function orderByDeadline(a, b) {
-    if (a.deadline && b.deadline) {
-        return a.deadline - b.deadline;
-    } else if (!a.deadline) {
+    console.log("sorting by deadline");
+    if (a.deadlineParsed && b.deadlineParsed) {
+        return a.deadlineParsed - b.deadlineParsed;
+    } else if (!a.deadlineParsed) {
         return 1;
     } else {
         return -1;
