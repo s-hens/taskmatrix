@@ -136,22 +136,22 @@
     </dialog>
 
     <dialog id="cats-dialog">
-        <h1>Categories</h1>
-        <button id="close-cats-dialog"><span class="material-icons-round">close</span></button>
+        <header>
+            <h1>Categories</h1>
+            <button id="close-cats-dialog"><span class="material-icons-round">close</span></button>
+        </header>
         
-        <h2>Add Category</h2>
         <form id="add-cats-form">
             <fieldset>
-                <label for="new-cat">Title</label><br>
+                <label for="new-cat"><h4>New Category</h4></label><br>
                 <input type="text" id="new-cat" name="new-cat">
             </fieldset>
             <button type="submit">Add</button>
         </form>
 
-        <h2>Delete Category</h2>
         <form id="delete-cats-form">
             <fieldset>
-                <label for="delete-cat">Category</label><br>
+                <label for="delete-cat"><h4>Delete Category</h4></label><br>
                 <select name="category" id="delete-cat">
                     <option value="">None</option>
                 </select>
