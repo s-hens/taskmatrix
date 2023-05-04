@@ -337,3 +337,47 @@ footer {
     padding: 20px 10vw;
     font-size: 0.9em;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 800px) {
+
+body {
+    height: auto;
+    background-color: var(--lightgrey);
+}
+
+header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+}
+
+nav {
+    grid-template-columns: auto auto 1fr;
+    justify-items: start;
+}
+
+main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    background-color: var(--white);
+}
+
+#a {
+    grid-area: 2 / 1 / 2 / 2;
+}
+
+#b-head {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+#c {
+    grid-area: 6 / 1 / 7 / 2;
+    border-bottom: 0;
+}
+
+#a-head, #a, #c-head, #c {
+    border-right: 1px solid var(--lightmedgrey);
+}
+
+}
