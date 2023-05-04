@@ -52,36 +52,38 @@
     </footer>
 
     <dialog id="add-task-dialog">
-        Add Task
-        <button id="close-add-task-dialog">Close</button>
+        <header>
+            <h1>Add Task</h1>
+            <button id="close-add-task-dialog"><span class="material-icons-round">close</span></button>
+        </header>
         <form id="add-task-form">
-            <fieldset>
-                <label for="add-title">Title</label><br>
+            <fieldset class="title-fieldset">
+                <label for="edit-title"><h4>Title</h4></label><br>
                 <input type="text" id="add-title" name="title">
             </fieldset>
             <fieldset>
-                <label for="add-deadline">Deadline</label><br>
+                <label for="edit-deadline"><h4>Deadline</h4></label><br>
                 <input type="date" id="add-deadline" name="deadline">
             </fieldset>
             <fieldset>
-                <label for="add-category">Category</label><br>
+                <label for="edit-category"><h4>Category</h4></label><br>
                 <select name="category" id="add-category">
                     <option value="">None</option>
                 </select>
             </fieldset>
-            <fieldset>
-                <label for="add-notes">Notes</label><br>
+            <fieldset class="notes-fieldset">
+                <label for="edit-notes"><h4>Notes</h4></label><br>
                 <textarea id="add-notes" name="notes" rows="5"></textarea>
             </fieldset>
             <fieldset>
-                Urgent?<br>
+                <h4>Is it urgent?</h4><br>
                 <input type="radio" id="add-urgency1" name="add-urgency" value="1">
                 <label for="add-urgency1">Yes</label><br>
                 <input type="radio" id="add-urgency0" name="add-urgency" value="0">
                 <label for="add-urgency0">No</label>
             </fieldset>
             <fieldset>
-                Important?<br>
+                <h4>Is it important?</h4><br>
                 <input type="radio" id="add-importance1" name="add-importance" value="1">
                 <label for="add-importance1">Yes</label><br>
                 <input type="radio" id="add-importance0" name="add-importance" value="0">
@@ -92,48 +94,52 @@
     </dialog>
 
     <dialog id="edit-task-dialog">
-        Edit Task
-        <button id="close-edit-task-dialog">Close</button>
+        <header>
+            <h1>Edit Task</h1>
+            <button id="close-edit-task-dialog"><span class="material-icons-round">close</span></button>
+        </header>
         <form id="edit-task-form">
-            <fieldset>
-                <label for="edit-title">Title</label><br>
+            <fieldset class="title-fieldset">
+                <label for="edit-title"><h4>Title</h4></label><br>
                 <input type="text" id="edit-title" name="title">
             </fieldset>
             <fieldset>
-                <label for="edit-deadline">Deadline</label><br>
+                <label for="edit-deadline"><h4>Deadline</h4></label><br>
                 <input type="date" id="edit-deadline" name="deadline">
             </fieldset>
             <fieldset>
-                <label for="edit-category">Category</label><br>
+                <label for="edit-category"><h4>Category</h4></label><br>
                 <select name="category" id="edit-category">
                     <option value="">None</option>
                 </select>
             </fieldset>
-            <fieldset>
-                <label for="edit-notes">Notes</label><br>
+            <fieldset class="notes-fieldset">
+                <label for="edit-notes"><h4>Notes</h4></label><br>
                 <textarea id="edit-notes" name="notes" rows="5"></textarea>
             </fieldset>
             <fieldset id="edit-urgency">
-                Urgent?<br>
+                <h4>Is it urgent?</h4><br>
                 <input type="radio" id="edit-urgency1" name="edit-urgency" value="1">
                 <label for="edit-urgency1">Yes</label><br>
                 <input type="radio" id="edit-urgency0" name="edit-urgency" value="0">
                 <label for="edit-urgency0">No</label>
             </fieldset>
             <fieldset id="edit-importance">
-                Important?<br>
+                <h4>Is it important?</h4><br>
                 <input type="radio" id="edit-importance1" name="edit-importance" value="1">
                 <label for="edit-importance1">Yes</label><br>
                 <input type="radio" id="edit-importance0" name="edit-importance" value="0">
                 <label for="edit-importance0">No</label>
             </fieldset>
-            <button type="submit">Add</button>
+            <button type="submit">Edit</button>
         </form>
     </dialog>
 
     <dialog id="cats-dialog">
-        <button id="close-cats-dialog">Close</button>
-        Add Category
+        <h1>Categories</h1>
+        <button id="close-cats-dialog"><span class="material-icons-round">close</span></button>
+        
+        <h2>Add Category</h2>
         <form id="add-cats-form">
             <fieldset>
                 <label for="new-cat">Title</label><br>
@@ -142,7 +148,7 @@
             <button type="submit">Add</button>
         </form>
 
-        Delete Category
+        <h2>Delete Category</h2>
         <form id="delete-cats-form">
             <fieldset>
                 <label for="delete-cat">Category</label><br>
