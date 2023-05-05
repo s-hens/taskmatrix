@@ -91,11 +91,11 @@ button:hover .material-icons-round {
 }
 
 ::selection {
-    background: #FFEE58;
+    background: #FFEB3B;
 }
 
 ::-moz-selection {
-    background: #FFEE58;
+    background: #FFEB3B;
 }
 
 /* Header */

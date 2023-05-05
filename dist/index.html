@@ -59,7 +59,7 @@
         <form id="add-task-form">
             <fieldset class="title-fieldset">
                 <label for="edit-title"><h4>Title</h4></label><br>
-                <input type="text" id="add-title" name="title">
+                <input type="text" id="add-title" name="title" required>
             </fieldset>
             <fieldset>
                 <label for="edit-deadline"><h4>Deadline</h4></label><br>
@@ -77,14 +77,14 @@
             </fieldset>
             <fieldset>
                 <h4>Is it urgent?</h4><br>
-                <input type="radio" id="add-urgency1" name="add-urgency" value="1">
+                <input type="radio" id="add-urgency1" name="add-urgency" value="1" required>
                 <label for="add-urgency1">Yes</label><br>
                 <input type="radio" id="add-urgency0" name="add-urgency" value="0">
                 <label for="add-urgency0">No</label>
             </fieldset>
             <fieldset>
                 <h4>Is it important?</h4><br>
-                <input type="radio" id="add-importance1" name="add-importance" value="1">
+                <input type="radio" id="add-importance1" name="add-importance" value="1" required>
                 <label for="add-importance1">Yes</label><br>
                 <input type="radio" id="add-importance0" name="add-importance" value="0">
                 <label for="add-importance0">No</label>
@@ -144,7 +144,7 @@
         <form id="add-cats-form">
             <fieldset>
                 <label for="new-cat"><h4>New Category</h4></label><br>
-                <input type="text" id="new-cat" name="new-cat">
+                <input type="text" id="new-cat" name="new-cat" required>
             </fieldset>
             <button type="submit">Add</button>
         </form>
@@ -152,7 +152,7 @@
         <form id="delete-cats-form">
             <fieldset>
                 <label for="delete-cat"><h4>Delete Category</h4></label><br>
-                <select name="category" id="delete-cat">
+                <select name="category" id="delete-cat" required>
                     <option value="">None</option>
                 </select>
             </fieldset>
