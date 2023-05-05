@@ -16,6 +16,7 @@ Created as part of [The Odin Project](https://www.theodinproject.com/) Full Stac
 - Tasks are automatically sorted into an Eisenhower matrix based on their importance and urgency
 - Tasks within each quadrant are automatically sorted by deadline
 - List is automatically saved across browser sessions in the browser's Local Storage
+- Mobile-friendly
 
 ## I learned about...
 
