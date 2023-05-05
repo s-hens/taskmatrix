@@ -352,9 +352,17 @@ header {
     grid-template-rows: auto auto;
 }
 
+h1 {
+    margin: 0;
+}
+
 nav {
     grid-template-columns: auto auto 1fr;
     justify-items: start;
+}
+
+button {
+    font-size: 1em;
 }
 
 main {
