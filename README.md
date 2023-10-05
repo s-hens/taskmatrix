@@ -26,4 +26,4 @@ Created as part of [The Odin Project](https://www.theodinproject.com/) Full Stac
 - LocalStorage
 - Using webpack to manage JS utility libraries
 - Deploying webpack-bundled sites through GitHub pages
-- A11Y colour standards
+- A11y colour standards
